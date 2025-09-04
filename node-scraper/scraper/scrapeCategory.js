@@ -5,6 +5,7 @@ module.exports = async function scrapeCategory(
   url,
   location,
   categoryTab,
+  maxEventsToScrape = null // New parameter for limiting events
 ) {
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2", timeout: 0 });
@@ -42,6 +43,11 @@ module.exports = async function scrapeCategory(
   const eventList = [];
 
   for (const link of eventLinks) {
+    // Stop if we've reached the maximum number of events to scrape
+    if (maxEventsToScrape !== null && eventList.length >= maxEventsToScrape) {
+      break;
+    }
+
     const detailPage = await browser.newPage();
     try {
       await detailPage.goto(link, { waitUntil: "networkidle2", timeout: 0 });
