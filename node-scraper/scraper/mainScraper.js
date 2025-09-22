@@ -6,11 +6,11 @@ const scrapeCategory = require('./scrapeCategory');
 puppeteer.use(StealthPlugin());
 
 const LOCATIONS = ['mumbai','national-capital-region-ncr','bengaluru','hyderabad','ahmedabad','chandigarh','chennai','pune','kolkata','kochi'];
-const CATEGORY_TABS = ['Movies','upcoming-movies','Events','Plays','Sports','Activities'];
+const CATEGORY_TABS = ['Activities','Plays','Events','Sports','upcoming-movies','Movies',];
 
 module.exports = async function mainScraper(baseUrl) {
     const allEvents = [];
-    const maxEvents = 5; // Set to null for unlimited scraping
+    const maxEvents = 3; // Set to null for unlimited scraping
 
     for (const location of LOCATIONS) {
         if (maxEvents !== null && allEvents.length >= maxEvents) break;
