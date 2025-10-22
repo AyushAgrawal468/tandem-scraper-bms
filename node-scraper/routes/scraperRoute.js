@@ -14,20 +14,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-// router.get('/', (req, res) => {
-//     const dummyEvents = [
-//         {
-//             title: "Concert",
-//             category: "Music",
-//             location: "Mumbai",
-//             eventDate: "2025-09-10",
-//             eventTime: "19:00",
-//             scrapedAt: new Date(),
-//             additionalData: {}
-//         }
-//     ];
-//     res.json(dummyEvents);
-// });
-
 module.exports = router;
-
