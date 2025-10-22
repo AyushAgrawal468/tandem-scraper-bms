@@ -45,17 +45,8 @@ module.exports = async function scrapeCategory(
       extendedUrl = "";
       break;
   }
-  const eventLinks = await page.$$eval(
-    `a[href*="${extendedUrl}"]`,
-    (anchors) => {
-      return  anchors.map((a) => a.href)
-      // return anchors
-      //   .filter((a) => {
-      //     const text = a.innerText?.trim() || "";
-      //     return text.length > 0 && a.href.includes("/events/");
-      //   })
-      //   .map((a) => a.href);
-    }
+  const eventLinks = await page.$$eval(`a.sc-133848s-11.sc-1ljcxl3-1.ctsexn.uPavs`, (anchors) =>
+    anchors.map((a) => a.href),
   );
 
   //   let eventLinks = await page.$$eval(`a[href*="${extendedUrl}"]`, (anchors) =>
