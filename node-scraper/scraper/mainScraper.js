@@ -5,12 +5,12 @@ const scrapeCategory = require('./scrapeCategory');
 
 puppeteer.use(StealthPlugin());
 
-const LOCATIONS = ['mumbai','national-capital-region-ncr','bengaluru','hyderabad','ahmedabad','chandigarh','chennai','pune','kolkata','kochi'];
-const CATEGORY_TABS = ['Movies','upcoming-movies','Events','Plays','Sports','Activities'];
+const LOCATIONS = ['indore','bengaluru','mumbai','national-capital-region-ncr','hyderabad','ahmedabad','chandigarh','chennai','pune','kolkata','kochi'];
+const CATEGORY_TABS = ['Activities','Movies','upcoming-movies','Events','Plays','Sports'];
 
 module.exports = async function mainScraper(baseUrl) {
     const allEvents = [];
-    const maxEvents = 5; // Set to null for unlimited scraping
+    const maxEvents = 100; // Set to null for unlimited scraping
 
     for (const location of LOCATIONS) {
         if (maxEvents !== null && allEvents.length >= maxEvents) break;

@@ -36,7 +36,7 @@ module.exports = async function scrapeCategory(
       extendedUrl = "";
       break;
   }
-  const eventLinks = await page.$$eval(`a[href*="${extendedUrl}"]`, (anchors) =>
+  const eventLinks = await page.$$eval(`a.sc-133848s-11.sc-1ljcxl3-1.ctsexn.uPavs`, (anchors) =>
     anchors.map((a) => a.href),
   );
 
